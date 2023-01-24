@@ -16,7 +16,7 @@ function move(element) {
     }        
 }
 
-function moveWithArrowKeys(left, bottom){
+function moveWithArrowKeys(left, bottom, callback){
     let direction = null;
     let x = left;
     let y = bottom;
@@ -58,10 +58,12 @@ function moveWithArrowKeys(left, bottom){
         if(e.key === 'ArrowDown'){
             direction = 'south'
         }
+        callback()
     })
     
     document.addEventListener('keyup', function(e){
         direction = null
+        callback()
     })
 }
 

@@ -1,7 +1,7 @@
 //updated logic from step 4.  character still does not move with arrow keys.  RUDE
 
 const character = newImage('assets/green-character/static.gif')
-move(character).withArrowKeys(100, 250)
+
 
 // //adding to see if it will allow the tree to move
 // //ok ended up only adding another tree.  
@@ -71,7 +71,8 @@ document.addEventListener('keyup', function(e){
     direction = null
 })
 
-
+//moved line 75 from line 4. Not sure if it will work.
+move(character).withArrowKeys(100, 250)
 move(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
 move(newImage('assets/pine-tree.png')).to(450, 350)
