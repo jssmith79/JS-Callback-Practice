@@ -1,12 +1,33 @@
-const inventory = newInventory()
-move(inventory).to(0, 0)
-
-
+//updated logic from step 4.  character still does not move with arrow keys.  RUDE
 
 const character = newImage('assets/green-character/static.gif')
-let direction = null;
-let x = 100;
-let y = 250;
+move(character).withArrowKeys(100, 250)
+
+// //adding to see if it will allow the tree to move
+// //ok ended up only adding another tree.  
+
+// move(newImage('assets/tree.png')).withArrowKeys(200, 450)
+
+
+function handleDirectionChange(){
+    if(direction === null){
+        character.src = 'assets/green-character/static.gif'
+    }
+    if(direction === 'west'){
+        character.src = 'assets/green-character/west.gif'
+    }
+    if(direction === 'north'){
+        character.src = 'assets/green-character/north.gif'
+    }
+    if(direction === 'east'){
+        character.src = 'assets/green-character/east.gif'
+    }
+    if(direction === 'south'){
+        character.src = 'assets/green-character/south.gif'
+    }
+}
+
+move(character).withArrowKeys(100, 250, handleDirectionChange)
 
 function moveCharacter(){ 
     if(direction === 'west'){
@@ -25,6 +46,7 @@ function moveCharacter(){
     character.style.bottom = y + 'px'
 }
 
+//moves the character based on arrow keys
 
 document.addEventListener('keydown', function(e){
     if(e.repeat) return;
@@ -43,6 +65,11 @@ document.addEventListener('keydown', function(e){
     }
 })
 
+//adding the event listeners to get the character to stop
+
+document.addEventListener('keyup', function(e){
+    direction = null
+})
 
 
 move(newImage('assets/tree.png')).to(200, 450)
