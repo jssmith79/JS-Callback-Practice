@@ -1,4 +1,5 @@
 //updated logic from step 4.  character still does not move with arrow keys.  RUDE
+//Take a look a the changes and try to understand the errors that where in the code. the character should be moving now :)
 
 const character = newImage('assets/green-character/static.gif')
 let direction = null;
@@ -29,30 +30,30 @@ function handleDirectionChange(direction){
 //adding event listeners so they will respond to keyboard actions
 
 move(character).withArrowKeys(100, 250, handleDirectionChange)
-document.addEventListener('keydown', function(e){
-    if(e.repeat) return;
+// document.addEventListener('keydown', function(e){
+//     if(e.repeat) return;
 
-    if(e.key === 'ArrowLeft'){
-        direction = 'west'
-    }
-    if(e.key === 'ArrowUp'){
-        direction = 'north'
-    }
-    if(e.key === 'ArrowRight'){
-        direction = 'east'
-    }
-    if(e.key === 'ArrowDown'){
-        direction = 'south'
-    }
-})
+//     if(e.key === 'ArrowLeft'){
+//         direction = 'west'
+//     }
+//     if(e.key === 'ArrowUp'){
+//         direction = 'north'
+//     }
+//     if(e.key === 'ArrowRight'){
+//         direction = 'east'
+//     }
+//     if(e.key === 'ArrowDown'){
+//         direction = 'south'
+//     }
+// })
 
-document.addEventListener('keyup', function(e){
-    direction = null
-})
+// document.addEventListener('keyup', function(e){
+//     direction = null
+// })
                                 
 
 
-move(character).withArrowKeys(100, 250)
+//move(character).withArrowKeys(100, 250)
 move(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
 move(newImage('assets/pine-tree.png')).to(450, 350)
