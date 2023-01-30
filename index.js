@@ -1,15 +1,12 @@
 //updated logic from step 4.  character still does not move with arrow keys.  RUDE
 
 const character = newImage('assets/green-character/static.gif')
+let direction = null;
+let x = 100;
+let y = 250;
 
 
-// //adding to see if it will allow the tree to move
-// //ok ended up only adding another tree.  
-
-// move(newImage('assets/tree.png')).withArrowKeys(200, 450)
-
-
-function handleDirectionChange(){
+function handleDirectionChange(direction){
     if(direction === null){
         character.src = 'assets/green-character/static.gif'
     }
@@ -27,27 +24,11 @@ function handleDirectionChange(){
     }
 }
 
+// setInterval(moveCharacter, 1)    this line of code made the other images dissappear from the page
+
+//adding event listeners so they will respond to keyboard actions
+
 move(character).withArrowKeys(100, 250, handleDirectionChange)
-
-function moveCharacter(){ 
-    if(direction === 'west'){
-        x = x - 1
-    }
-    if(direction === 'north'){
-        y = y + 1
-    }
-    if(direction === 'east'){
-        x = x + 1
-    }
-    if(direction === 'south'){
-        y = y - 1
-    }
-    character.style.left = x + 'px'
-    character.style.bottom = y + 'px'
-}
-
-//moves the character based on arrow keys
-
 document.addEventListener('keydown', function(e){
     if(e.repeat) return;
 
@@ -65,13 +46,12 @@ document.addEventListener('keydown', function(e){
     }
 })
 
-//adding the event listeners to get the character to stop
-
 document.addEventListener('keyup', function(e){
     direction = null
 })
+                                
 
-//moved line 75 from line 4. Not sure if it will work.
+
 move(character).withArrowKeys(100, 250)
 move(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
